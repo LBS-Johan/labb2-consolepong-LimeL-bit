@@ -19,7 +19,6 @@ namespace Labb2_ConsolePong
             height = Console.WindowHeight;
             Console.CursorVisible = false;
 
-
         }
 
         public bool Run()
