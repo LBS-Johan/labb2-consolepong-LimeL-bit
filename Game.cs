@@ -12,9 +12,11 @@ namespace Labb2_ConsolePong
     {
         int width;
         int height;
+        public int playerSize = 5;
 
-        Paddle p1 = new Paddle(5, 15, 5);
-        Paddle p2 = new Paddle(115, 15, 5);
+        Paddle p1;
+        Paddle p2;
+        Ball ball;
 
         public void StartGame()
         {
@@ -22,8 +24,9 @@ namespace Labb2_ConsolePong
             height = Console.WindowHeight; //30
             Console.CursorVisible = false;
 
-            p1.y = height / 2;
-            p2.y = height / 2;
+            ball = new Ball(width / 2, height / 2, 1, 1);
+            p2 = new Paddle(115, height / 2, playerSize);
+            p1 = new Paddle(5, height / 2, playerSize);
 
             
             // gör backgrunden vit vid paddlen för hel färg :D
@@ -35,6 +38,9 @@ namespace Labb2_ConsolePong
 
             p1.Draw(ConsoleColor.Red);
             p2.Draw(ConsoleColor.Blue);
+            ball.Draw();
+            ball.CheckCollisions(p1, p2, width, height);
+            ball.Move();
             bacground();
 
             if (Input.IsPressed(ConsoleKey.UpArrow))
