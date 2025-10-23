@@ -29,12 +29,14 @@ public class Paddle
         
     }
 
-    public void Draw()
+    public void Draw(ConsoleColor color = ConsoleColor.White)
     {
+        Console.ForegroundColor = color;
         for (int i = 0; i < size; i++)
         {
             Console.SetCursorPosition(x, y + i);
             Console.Write("|");
         }
+        Console.ResetColor();
     }
 }

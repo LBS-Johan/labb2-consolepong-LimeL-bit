@@ -13,8 +13,8 @@ namespace Labb2_ConsolePong
         int width;
         int height;
 
-        Paddle Player1 = new Paddle(5, 15, 5);
-        Paddle Player2 = new Paddle(115, 15, 5);
+        Paddle p1 = new Paddle(5, 15, 5);
+        Paddle p2 = new Paddle(115, 15, 5);
 
         public void StartGame()
         {
@@ -22,8 +22,8 @@ namespace Labb2_ConsolePong
             height = Console.WindowHeight; //30
             Console.CursorVisible = false;
 
-            Player1.y = height / 2;
-            Player2.y = height / 2;
+            p1.y = height / 2;
+            p2.y = height / 2;
 
             
             // gör backgrunden vit vid paddlen för hel färg :D
@@ -33,30 +33,30 @@ namespace Labb2_ConsolePong
         {
             Console.Clear();
 
-            Player1.Draw();
-            Player2.Draw();
+            p1.Draw(ConsoleColor.Red);
+            p2.Draw(ConsoleColor.Blue);
             bacground();
 
             if (Input.IsPressed(ConsoleKey.UpArrow))
             {
                 //Flytta spelare 1 uppåt
-                Player2.Move(-1, height, 0);
+                p2.Move(-1, height, 0);
             }
             if (Input.IsPressed(ConsoleKey.DownArrow))
             {
                 //Flytta spelare 1 nedåt
-                Player2.Move(1, height, 0);
+                p2.Move(1, height, 0);
             }
 
             if (Input.IsPressed(ConsoleKey.W))
             {
                 //Flytta spelare 2 uppåt
-                Player1.Move(-1, height, 0);
+                p1.Move(-1, height, 0);
             }
             if (Input.IsPressed(ConsoleKey.S))
             {
                 //Flytta spelare 2 nedåt
-                Player1.Move(1, height, 0);
+                p1.Move(1, height, 0);
             }
 
 
