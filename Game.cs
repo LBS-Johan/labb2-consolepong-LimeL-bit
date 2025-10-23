@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -17,7 +18,6 @@ namespace Labb2_ConsolePong
 
         public void StartGame()
         {
-            // Setup konsol-fönstret
             width = Console.WindowWidth; //120
             height = Console.WindowHeight; //30
             Console.CursorVisible = false;
@@ -25,15 +25,28 @@ namespace Labb2_ConsolePong
             Player1.y = height / 2;
             Player2.y = height / 2;
 
+            
+            // gör backgrunden vit vid paddlen för hel färg :D
         }
 
         public bool Run()
         {
-            //Töm hela skärmen i början av varje uppdatering.
             Console.Clear();
 
             Player1.Draw();
             Player2.Draw();
+
+            for (int i = 0; i < height; i++)
+            {
+                Console.SetCursorPosition(1, i);
+                Console.Write(">");
+
+                Console.SetCursorPosition(width / 2 -1, i);
+                Console.Write("| |");
+
+                Console.SetCursorPosition(width-1, i);
+                Console.Write("<");
+            }
 
             if (Input.IsPressed(ConsoleKey.UpArrow))
             {

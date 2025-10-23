@@ -23,7 +23,7 @@ public class Paddle
         }
         else if (yAmount == 1) // ner
         {
-            if (y + size - 1 < maxy)
+            if (y + size < maxy)
             y += 1;
         }
         
