@@ -35,18 +35,7 @@ namespace Labb2_ConsolePong
 
             Player1.Draw();
             Player2.Draw();
-
-            for (int i = 0; i < height; i++)
-            {
-                Console.SetCursorPosition(1, i);
-                Console.Write(">");
-
-                Console.SetCursorPosition(width / 2 -1, i);
-                Console.Write("| |");
-
-                Console.SetCursorPosition(width-1, i);
-                Console.Write("<");
-            }
+            bacground();
 
             if (Input.IsPressed(ConsoleKey.UpArrow))
             {
@@ -75,6 +64,21 @@ namespace Labb2_ConsolePong
             //Return true om spelet ska fortsätta
             return true;
 
+        }
+
+        public void bacground()
+        {
+            for (int i = 0; i < height; i++)
+            {
+                Console.SetCursorPosition(1, i);
+                Console.Write(">");
+
+                Console.SetCursorPosition(width / 2 - 1, i);
+                Console.Write("| |");
+
+                Console.SetCursorPosition(width - 1, i);
+                Console.Write("<");
+            }
         }
     }
 }
