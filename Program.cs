@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            int gameSpeed = 50; //milliseconds per update
+            int gameSpeed = 25; //milliseconds per update
             Game game = new Game();
             game.StartGame();
 
