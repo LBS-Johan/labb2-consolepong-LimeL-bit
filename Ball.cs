@@ -28,7 +28,7 @@ public class Ball
 	public void Draw()
 	{
 		Console.SetCursorPosition(x, y);
-		Console.Write("O");
+		Console.Write("()");
 	}
 	public void CheckCollisions(Paddle p1, Paddle p2, int width, int height)
 	{
@@ -62,7 +62,7 @@ public class Ball
                 }
             }
         }
-        if (x == p2.x - 1 || x == p2.x) //player 2 collsion
+        if (x == p2.x - 2 || x == p2.x -1) //player 2 collsion
         {
             for (int i = 0; i < Game.playerSize; i++)
             {
@@ -76,7 +76,7 @@ public class Ball
 
     void scoreCollison(int width, int height)
     {
-        if (x == width - 1)
+        if (x == width - 2)
         {
             p2Score += 1;
             x = width / 2;
