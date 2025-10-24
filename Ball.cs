@@ -10,7 +10,8 @@ public class Ball
 	int xVelocity;
 	int yVelocity;
 	Game Game = new Game();
-	public int p1Score = 0;
+    numberOutputer numOut = new numberOutputer();
+    public int p1Score = 0;
 	public int p2Score = 0;
 
 	public Ball(int x, int y, int xVelocity, int yVelocity)
@@ -39,7 +40,7 @@ public class Ball
 		playerCollision(p1, p2); // cheks collision on players
 
         scoreCollison(width, height); //cheks collsion the the side walls and gives points
-
+        
     }
         
 	void edgeCollsion (int height)
@@ -90,6 +91,12 @@ public class Ball
             y = height / 2;
 
         }
+    }
+
+    public void scoreCounting(Paddle p1, Paddle p2)
+    {
+        numOut.NumbetText(p1Score, p1, p2);
+        numOut.NumbetText(p1Score, p1, p2);
     }
 }
 

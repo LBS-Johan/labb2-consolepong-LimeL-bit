@@ -36,6 +36,7 @@ namespace Labb2_ConsolePong
         {
             Console.Clear();
 
+            ball.scoreCounting(p1, p2);
             p1.Draw(ConsoleColor.Red);
             p2.Draw(ConsoleColor.Blue);
             ball.Draw();
