@@ -9,59 +9,43 @@ namespace Labb2_ConsolePong
 {
     internal class numberOutputer
     {
-        public void NumbetText(int number, Paddle p1, Paddle p2)
+        static string[][] numberDesigns = new string[10][];
+        int startX;
+        int startY;
+
+        public void NumbetText(int number, Paddle p1, Paddle p2, bool P1TorP2F)
         {
-
-
-
-
-            numberHandeling(number);
+            saveNumbers();
+            numberHandeling(number,p1,p2,P1TorP2F);
         }
 
-        public int numberHandeling(int number)
+        public void numberHandeling(int number, Paddle p1, Paddle p2, bool P1TorP2F)
         {
-            if (number == 0)
+            if (number >= 0 && number <= 9)
             {
+                if (number < 0 || number > 9) return;
+                string[] design = numberDesigns[number];
+                
+
+                if (P1TorP2F == true)
+                {
+                    startX = p1.x + 30;
+                    startY = 1;
+                }
+                else if(P1TorP2F == false)
+                {
+                    startX = p2.x - 35;
+                    startY = 1;
+                }
+
+                for (int i = 0; i < design.Length; i++)
+                {
+                    Console.SetCursorPosition(startX, startY + i);
+                    Console.Write(design[i]);
+                }
+
 
             }
-            else if (number == 1)
-            {
-
-            }
-            else if (number == 2)
-            {
-
-            }
-            else if (number == 3)
-            {
-
-            }
-            else if (number == 4)
-            {
-
-            }
-            else if (number == 5)
-            {
-
-            }
-            else if (number == 6)
-            {
-
-            }
-            else if (number == 7)
-            {
-
-            }
-            else if (number == 8)
-            {
-
-            }
-            else if (number == 9)
-            {
-
-            }
-
-            return (number);
         }
 
         public void saveNumbers()
@@ -138,6 +122,17 @@ namespace Labb2_ConsolePong
             "    #",
             " ### "
         };
+
+            numberDesigns[0] = design0;
+            numberDesigns[1] = design1;
+            numberDesigns[2] = design2;
+            numberDesigns[3] = design3;
+            numberDesigns[4] = design4;
+            numberDesigns[5] = design5;
+            numberDesigns[6] = design6;
+            numberDesigns[7] = design7;
+            numberDesigns[8] = design8;
+            numberDesigns[9] = design9;
 
         }
     }

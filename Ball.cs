@@ -79,15 +79,33 @@ public class Ball
     {
         if (x == width - 2)
         {
-            p2Score += 1;
+            if (p1Score == 9)
+            {
+                p2Score = 0;
+                p1Score = 0;
+            }
+            else
+            {
+                p1Score += 1;
+            }
+            
             x = width / 2;
             y = height / 2;
 
         }
         else if (x == 0)
         {
-            p1Score += 1;
-            x = width / 2;
+            if(p2Score == 9)
+            {
+                p2Score = 0;
+                p1Score = 0;
+            }
+            else
+            {
+                p2Score += 1;
+            }
+
+                x = width / 2;
             y = height / 2;
 
         }
@@ -95,8 +113,8 @@ public class Ball
 
     public void scoreCounting(Paddle p1, Paddle p2)
     {
-        numOut.NumbetText(p1Score, p1, p2);
-        numOut.NumbetText(p1Score, p1, p2);
+        numOut.NumbetText(p1Score, p1, p2, true);
+        numOut.NumbetText(p2Score, p1, p2, false);
     }
 }
 
